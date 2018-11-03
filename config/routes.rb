@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
   root "produtos#index" 
-  resources :produtos
-  delete "produtos/:id" => "produtos#destroy"
+  resources :produtos, only: [:new,:create,:destroy]
 end
