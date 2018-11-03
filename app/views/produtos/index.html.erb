@@ -15,7 +15,7 @@
             <td><%= produto.descricao %></td>
             <td><%= produto.quantidade %></td>
             <td><%= produto.preco %></td>
-            <td><%= link_to "Remover", "produtos/#{produto.id}/destroy", class: "btn btn-danger" %></td>
+            <td><%= link_to "Remover", produto, method: :delete, class: "btn btn-danger" %></td>
         </tr>
         <% end %>
     </tbody>
@@ -38,7 +38,7 @@
             <td><%= produto.descricao %></td>
             <td><%= produto.quantidade %></td>
             <td><%= produto.preco %></td>
-            <td><%= link_to "Remover", "produtos/#{produto.id}/destroy", class: "btn btn-danger" %></td>
+            <td><%= link_to "Remover", produto, method: :delete, class: "btn btn-danger" %></td>
         </tr>
         <% end %>
     </tbody>
