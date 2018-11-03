@@ -5,6 +5,7 @@
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td><%= produto.descricao %></td>
             <td><%= produto.quantidade %></td>
             <td><%= produto.preco %></td>
+            <td><%= link_to "Remover", "produtos/#{produto.id}/destroy", class: "btn btn-danger" %></td>
         </tr>
         <% end %>
     </tbody>
@@ -26,6 +28,7 @@
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +38,7 @@
             <td><%= produto.descricao %></td>
             <td><%= produto.quantidade %></td>
             <td><%= produto.preco %></td>
+            <td><%= link_to "Remover", "produtos/#{produto.id}/destroy", class: "btn btn-danger" %></td>
         </tr>
         <% end %>
     </tbody>
