@@ -16,4 +16,9 @@ class ProdutosController < ApplicationController
         redirect_to root_path
     end
 
+    def busca 
+        @busca_nome = params[:nome]
+        @produtos = Produto.where "nome like ?", "%#{@busca_nome}%" 
+    end
+
 end

@@ -10,7 +10,14 @@
   </head>
 
   <body>
-  <%= nav_bar brand: "Hawks ", brand_link: root_path  %>
+  <%= nav_bar brand: "Hawks ", brand_link: root_path do %>
+    <% form_tag busca_produto_path,method: :get, class:"navbar-form navbar-right" do%>
+      <div class="form-group">
+        <%= text_field_tag :nome, @busca_nome = params[:nome],class:"form-control" %>
+        <%= button_to "Buscar", nil, class:"btn btn-default" %>
+      </div> 
+    <% end %>
+  <% end %>
     <div class="container">
       <%= yield %>
     </div>

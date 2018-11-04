@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @produtos.each do |produto| %>
+        <tr>
+            <td><%= produto.nome %></td>
+            <td><%= produto.descricao %></td>
+            <td><%= produto.quantidade %></td>
+            <td><%= produto.preco %></td>
+            <td><%= button_to "Remover", produto, method: :delete, class: "btn btn-danger", data: {confirm: "Tem certeza que deseja remover #{produto.nome}?"} %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= button_to "Voltar para o index", root_url, method: :get, class:"btn btn-primary" %>
