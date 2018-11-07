@@ -1,27 +1,42 @@
-<%= form_for Produto.new do |f| %>
-    
-        <div class="form-group">
-            <%= f.label :nome %>
-            <%= f.text_field :nome, class: "form-control" %>
+<%= form_for @produto do |f| %>
+    <% if !@produto.errors.full_messages.empty? %>
+        <div class="alert alert-danger">
+            <strong>
+            Campo(s): 
+                <% @produto.errors.keys.each do |erro| %> 
+                    <%= "#{erro}, " %>
+                <%end%>
+            inválido(s)</strong> 
         </div>
-
-        <div class="form-group">
-            <%= f.label :descricao %>
-            <%= f.text_area :descricao, class: "form-control",rows:4 %>
-        </div>
-
-        <div class="form-inline">
-            <div class="form-group">
-                <%= f.label :quantidade %>
-                <%= f.number_field :quantidade, step: 1, class: "form-control"  %>
+        <% @produto.errors.full_messages.each do |mensagem| %>
+            <div class="alert alert-danger">
+                <%= mensagem %>
             </div>
+        <% end %>
+    <% end %>
 
-            <div class="form-group">
-                <%= f.label :preco %>
-                <%= f.number_field :preco, step: 0.01, class: "form-control" %>
-            </div>
+    <div class="form-group">
+        <%= f.label :nome %>
+        <%= f.text_field :nome, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :descricao %>
+        <%= f.text_area :descricao, class: "form-control",rows:4 %>
+    </div>
+
+    <div class="form-inline">
+        <div class="form-group">
+            <%= f.label :quantidade %>
+            <%= f.number_field :quantidade, step: 1, class: "form-control"  %>
         </div>
-    
-        <br>
-        <%= f.submit "Criar o produto",class: "btn btn-success" %> 
+
+        <div class="form-group">
+            <%= f.label :preco %>
+            <%= f.number_field :preco, step: 0.01, class: "form-control" %>
+        </div>
+    </div>
+
+    <br>
+    <%= f.submit "Criar o produto",class: "btn btn-success" %> 
 <% end %>

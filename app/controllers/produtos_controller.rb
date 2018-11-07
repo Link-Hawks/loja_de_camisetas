@@ -4,10 +4,19 @@ class ProdutosController < ApplicationController
         @produtos_preco = Produto.all.order(:preco).limit 2
     end
 
+    def new
+        @produto = Produto.new
+    end
+
     def create
         valores = params.require(:produto).permit(:nome,:descricao,:quantidade,:preco)
-        @produto = Produto.create valores
-        redirect_to root_path
+        @produto = Produto.new valores
+        if @produto.save  
+            flash[:notice] = "Produto cadastrado com sucesso!"
+            redirect_to root_path
+        else
+            render :new
+        end
     end
 
     def destroy
